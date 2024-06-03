@@ -21,14 +21,35 @@ function fetchTrends()
         })
         .then((data)=>{
             resultsDiv.textContent=" ";
-            console.log(data);
+
             if(data.trends && data.trends.length > 0){
                 data.trends.map((trend)=>{
                     const trendli = document.createElement('li');
                     trendli.className = 'trend';
                     trendli.textContent = trend;
                     resultsDiv.appendChild(trendli);
-                })
+                }) 
+
+                const trendIP = document.createElement('p');
+                trendIP.textContent = "IP ADDRESS USED: " + data.ip;
+                const trendTime = document.createElement('p');
+                trendTime.textContent = "CURRENT TIME:  " + data.date;
+
+                resultsDiv.appendChild(trendIP);
+                resultsDiv.appendChild(trendTime);
+
+
+                const spacediv = document.createElement('div');
+                spacediv.className = 'spacediv';
+                spacediv.textContent = 'JSON DATA:'
+                resultsDiv.appendChild(spacediv);
+
+                const saveTrendJSON = JSON.stringify(data.saveTrend, null, 2);
+                const trendjson = document.createElement('div');
+                trendjson.className = 'trendjson';
+                trendjson.textContent = saveTrendJSON;
+                resultsDiv.appendChild(trendjson);
+
             }
             else{
                 resultsDiv.textContent = 'No trends Found';

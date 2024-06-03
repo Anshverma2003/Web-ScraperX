@@ -40,3 +40,9 @@ button:hover {
     margin-bottom: 10px;
     cursor: default;
 }
+.spacediv {
+    margin-top: 2rem;
+}
+.trendjson {
+    margin-top: 2rem;
+}
