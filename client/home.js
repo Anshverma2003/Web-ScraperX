@@ -7,7 +7,7 @@ function fetchTrends()
     const resultsDiv = document.getElementById('results')
     resultsDiv.textContent="Loading........";
 
-    fetch('https://web-scraper-x.vercel.app/trends',{
+    fetch('http://localhost:8080/trends',{
         method: 'GET', 
         headers:{
             'Content-Type': 'application/json'
