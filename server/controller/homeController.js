@@ -12,7 +12,7 @@ export const home = async (req, res) => {
         await driver.get('https://x.com/i/flow/login');
 
 
-        await driver.wait(until.elementLocated(By.xpath("//input[@name='text']")), 10000);
+        await driver.wait(until.elementLocated(By.xpath("//input[@name='text']")), 20000);
 
         var userName = await driver.findElement(By.xpath("//input[@name='text']"));
         await userName.sendKeys(process.env.LOGIN_USERNAME);
@@ -20,7 +20,7 @@ export const home = async (req, res) => {
         let nextBtn = await driver.findElement(By.xpath("//span[contains(text(),'Next')]"));
         await nextBtn.click();
 
-        await driver.wait(until.elementLocated(By.xpath("//input[@name='password']")), 10000);
+        await driver.wait(until.elementLocated(By.xpath("//input[@name='password']")), 20000);
         var password = await driver.findElement(By.xpath("//input[@name='password']"));
         await password.sendKeys(process.env.LOGIN_PASSWORD);
 
